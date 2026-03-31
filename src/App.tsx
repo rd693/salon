@@ -1,20 +1,11 @@
 import Navbar from './components/Navbar'
+import HeroSection from './components/HeroSection'
 
 function App() {
   return (
     <>
       <Navbar />
-
-      {/* Home Section */}
-      <section id="home" className="pt-20 pb-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-20 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">81 Therapy Spa</h1>
-          <p className="text-xl text-gray-600 mb-8">Therapeutic Massage Specialists</p>
-          <button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-            Book Your Appointment
-          </button>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* About Section */}
       <section id="about" className="py-16 bg-surface">
