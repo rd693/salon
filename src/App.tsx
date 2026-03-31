@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
+import { ServicesSection } from './components/ServicesSection'
 
 function App() {
   return (
@@ -8,21 +9,7 @@ function App() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-
-      {/* Services Section */}
-      <section id="services" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {['Swedish Massage', 'Deep Tissue Massage', 'Thai Massage', 'Hot Stone Therapy', 'Reflexology', 'Aromatherapy'].map((service) => (
-              <div key={service} className="bg-surface p-6 rounded-lg border border-gray-200">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{service}</h3>
-                <p className="text-gray-600">Experience the healing benefits of our professional {service.toLowerCase()} treatment.</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-16 bg-surface">
