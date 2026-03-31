@@ -1,6 +1,15 @@
 import { Card, CardContent } from './ui/card'
 import { services } from '../data/services'
-import * as LucideIcons from 'lucide-react'
+import { Dumbbell, Sparkles, Activity, Target, Heart, Footprints } from 'lucide-react'
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Dumbbell,
+  Sparkles,
+  Activity,
+  Target,
+  Heart,
+  Footprints
+}
 
 export function ServicesSection() {
   return (
@@ -17,7 +26,7 @@ export function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service) => {
-            const IconComponent = (LucideIcons as any)[service.icon] || LucideIcons.Heart
+            const IconComponent = iconMap[service.icon] || Heart
 
             return (
               <Card
@@ -45,9 +54,9 @@ export function ServicesSection() {
                     <div className="sm:border-l sm:border-gray-200 sm:pl-4">
                       <div className="text-sm font-medium text-gray-500 mb-2">Pricing</div>
                       <div className="space-y-1">
-                        {service.pricing.map((price, index) => (
+                        {service.pricing.map((price) => (
                           <div
-                            key={index}
+                            key={price.duration}
                             className="flex justify-between gap-4 text-sm"
                           >
                             <span className="text-gray-600">{price.duration}</span>
