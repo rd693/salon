@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
 import { ServicesSection } from './components/ServicesSection'
+import { TestimonialsSection } from './components/TestimonialsSection'
 
 function App() {
   return (
@@ -10,25 +11,7 @@ function App() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
-
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-16 bg-surface">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Client Testimonials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: 'Sarah Johnson', text: 'Amazing experience! The therapists are very professional and the atmosphere is so relaxing.' },
-              { name: 'Mike Chen', text: 'Best massage I have ever had. Will definitely come back for more treatments.' },
-              { name: 'Emma Davis', text: 'Highly recommend! The staff is friendly and the quality of service is exceptional.' },
-            ].map((testimonial) => (
-              <div key={testimonial.name} className="bg-white p-6 rounded-lg border border-gray-200">
-                <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
-                <p className="font-semibold text-gray-900">— {testimonial.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection />
 
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-white">
