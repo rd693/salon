@@ -1,37 +1,13 @@
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import AboutSection from './components/AboutSection'
 
 function App() {
   return (
     <>
       <Navbar />
       <HeroSection />
-
-      {/* About Section */}
-      <section id="about" className="py-16 bg-surface">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">About Us</h2>
-          <p className="text-lg text-gray-700 max-w-3xl mb-8">
-            Welcome to 81 Therapy Spa, your premier destination for therapeutic massage and spa services.
-            With over a decade of experience, we are dedicated to providing the highest quality treatments
-            to help you relax, rejuvenate, and restore your body and mind.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Therapists</h3>
-              <p className="text-gray-600">Licensed professionals with years of experience</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Premium Facilities</h3>
-              <p className="text-gray-600">Modern, clean, and relaxing treatment rooms</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Personalized Care</h3>
-              <p className="text-gray-600">Customized treatments for your unique needs</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       {/* Services Section */}
       <section id="services" className="py-16 bg-white">
