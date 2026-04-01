@@ -9,16 +9,18 @@ import {
 import { Star, Quote } from 'lucide-react'
 import { featuredTestimonial, testimonials } from '../data/testimonials'
 
+const renderStars = (rating: number) => {
+  const validRating = Math.min(5, Math.max(0, Math.floor(rating)))
+  return (
+    <div className="flex gap-1 justify-center" role="img" aria-label={`${validRating} out of 5 stars`}>
+      {[...Array(validRating)].map((_, i) => (
+        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" aria-hidden="true" />
+      ))}
+    </div>
+  )
+}
+
 export function TestimonialsSection() {
-  const renderStars = (rating: number) => {
-    return (
-      <div className="flex gap-1">
-        {[...Array(rating)].map((_, i) => (
-          <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-        ))}
-      </div>
-    )
-  }
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-surface">
