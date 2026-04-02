@@ -1,11 +1,29 @@
 @import "tailwindcss";
 
 @layer base {
+  /* Force light mode - disable dark mode completely */
   html {
     scroll-behavior: smooth;
+    color-scheme: light only;
+  }
+
+  /* Override any dark mode attempts */
+  html.dark,
+  html[data-theme="dark"],
+  :root {
+    color-scheme: light !important;
   }
 
   body {
-    @apply font-sans text-gray-700;
+    @apply font-sans text-gray-900 bg-white;
+    color-scheme: light !important;
+  }
+
+  /* Force all inputs, textareas, selects to be light */
+  input,
+  textarea,
+  select,
+  button {
+    color-scheme: light !important;
   }
 }
