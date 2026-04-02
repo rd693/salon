@@ -1,6 +1,8 @@
 import { Card, CardContent } from './ui/card'
 import { services } from '../data/services'
 import { Dumbbell, Sparkles, Activity, Target, Heart, Footprints } from 'lucide-react'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Dumbbell,
@@ -12,27 +14,38 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 export function ServicesSection() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
   return (
     <section id="services" className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our Therapeutic Services
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Professional massage therapy tailored to your wellness needs
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const IconComponent = iconMap[service.icon] || Heart
 
             return (
-              <Card
+              <motion.div
                 key={service.id}
-                className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.1 }}
               >
+                <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
                 <CardContent className="p-6">
                   <div className="flex flex-col sm:flex-row gap-4">
                     {/* Left: Icon, Name, Description */}
@@ -68,6 +81,7 @@ export function ServicesSection() {
                   </div>
                 </CardContent>
               </Card>
+              </motion.div>
             )
           })}
         </div>

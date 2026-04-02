@@ -1,6 +1,7 @@
 import { Star } from 'lucide-react'
 import { businessInfo } from '../data/businessInfo'
 import { Button } from './ui/button'
+import { motion } from 'framer-motion'
 
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
@@ -30,7 +31,12 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/60"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+      >
         <h1 className="text-5xl md:text-6xl font-bold mb-4">
           {businessInfo.name}
         </h1>
@@ -68,7 +74,7 @@ const HeroSection = () => {
             Book Now
           </Button>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

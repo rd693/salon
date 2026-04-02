@@ -1,6 +1,11 @@
 import { Users, Check, DollarSign, Clock, Star } from 'lucide-react'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 const AboutSection = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
   const features = [
     {
       icon: Users,
@@ -31,10 +36,14 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-16 bg-surface">
-      <div className="max-w-7xl mx-auto px-6">
+      <div ref={ref} className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Text Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Expert Therapeutic Care in Lincoln Heights
             </h2>
@@ -49,10 +58,15 @@ const AboutSection = () => {
               moment of relaxation, our team is committed to helping you achieve optimal wellness
               through professional massage therapy.
             </p>
-          </div>
+          </motion.div>
 
           {/* Features Grid */}
-          <div className="space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+            className="space-y-4"
+          >
             {features.map((feature) => (
               <div
                 key={feature.title}
@@ -71,7 +85,7 @@ const AboutSection = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

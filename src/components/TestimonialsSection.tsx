@@ -8,6 +8,8 @@ import {
 } from './ui/carousel'
 import { Star, Quote } from 'lucide-react'
 import { featuredTestimonial, testimonials } from '../data/testimonials'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 const renderStars = (rating: number) => {
   const validRating = Math.min(5, Math.max(0, Math.floor(rating)))
@@ -21,12 +23,19 @@ const renderStars = (rating: number) => {
 }
 
 export function TestimonialsSection() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Featured Testimonial */}
-        <div className="max-w-4xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="max-w-4xl mx-auto mb-16"
+        >
           <Card className="bg-white shadow-xl">
             <CardContent className="p-8 md:p-12 text-center">
               <Quote className="w-12 h-12 text-primary mx-auto mb-6 opacity-20" />
@@ -41,14 +50,19 @@ export function TestimonialsSection() {
               </p>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
 
         {/* Carousel Section */}
-        <div className="text-center mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+          className="text-center mb-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             What Our Clients Say
           </h2>
-        </div>
+        </motion.div>
 
         <Carousel
           opts={{
