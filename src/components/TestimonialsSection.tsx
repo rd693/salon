@@ -55,7 +55,7 @@ export function TestimonialsSection() {
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
           className="max-w-5xl mx-auto mb-20"
         >
-          <Card className="bg-gradient-to-br from-white to-blue-50 shadow-2xl border-2 border-blue-200 relative overflow-hidden">
+          <Card className="bg-gradient-to-br from-white to-blue-50 shadow-2xl border border-gray-200 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600 rounded-full blur-3xl opacity-10"></div>
             <CardContent className="p-10 md:p-14 relative">
               <div className="flex justify-center mb-8">
@@ -99,23 +99,23 @@ export function TestimonialsSection() {
             <CarouselContent className="-ml-4">
               {testimonials.map((testimonial) => (
                 <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-blue-100">
+                  <Card className="h-full bg-gradient-to-br from-white to-blue-50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-200">
                     <CardContent className="p-7">
                       <div className="flex items-start justify-between mb-4">
                         {renderStars(testimonial.rating)}
-                        <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
                       </div>
-                      <blockquote className="text-gray-700 mb-6 leading-relaxed text-base min-h-[120px]">
+                      <blockquote className="text-gray-800 mb-6 leading-relaxed text-base min-h-[120px] font-medium">
                         "{testimonial.quote}"
                       </blockquote>
-                      <div className="pt-4 border-t border-blue-100">
+                      <div className="pt-4 border-t border-gray-200">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center shadow-md flex-shrink-0">
+                          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center shadow-md flex-shrink-0">
                             <User className="w-5 h-5 text-white" />
                           </div>
                           <div>
                             <p className="font-bold text-gray-900 text-sm">{testimonial.author}</p>
-                            <p className="text-xs text-gray-600 font-medium">{testimonial.source}</p>
+                            <p className="text-xs text-gray-700 font-semibold">{testimonial.source}</p>
                           </div>
                         </div>
                       </div>

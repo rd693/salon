@@ -61,14 +61,14 @@ const HeroSection = () => {
           <Button
             size="lg"
             onClick={() => scrollToSection('services')}
-            className="bg-primary hover:bg-secondary text-white text-lg px-10 py-7 shadow-2xl hover:shadow-primary/50 transition-all"
+            className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-10 py-7 font-bold shadow-2xl hover:shadow-blue-500/50 transition-all"
           >
             View Services
           </Button>
           <Button
             size="lg"
             onClick={() => scrollToSection('contact')}
-            className="bg-white hover:bg-gray-100 text-primary text-lg px-10 py-7 font-bold shadow-2xl transition-all"
+            className="bg-white hover:bg-gray-100 text-gray-900 text-lg px-10 py-7 font-bold shadow-2xl transition-all border-2 border-white"
           >
             Book Appointment
           </Button>

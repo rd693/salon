@@ -72,9 +72,9 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: Contact Form */}
           <div>
-            <Card>
+            <Card className="bg-white border border-gray-200 shadow-xl">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900">Send Us a Message</h3>
 
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -181,22 +181,22 @@ export function ContactSection() {
           {/* Right: Contact Info & Map */}
           <div className="space-y-6">
             {/* Contact Info - Prominent */}
-            <Card className="border-2 border-primary/20 shadow-xl">
+            <Card className="border border-gray-200 shadow-xl overflow-hidden">
               <CardContent className="p-8 space-y-8 bg-gradient-to-br from-blue-50 to-white">
-                <div className="text-center pb-4 border-b-2 border-primary/20">
+                <div className="text-center pb-4 border-b-2 border-blue-200">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Contact Information</h3>
-                  <p className="text-gray-700">Reach out to us directly</p>
+                  <p className="text-gray-700 font-medium">Reach out to us directly</p>
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-xl flex items-center justify-center shadow-lg">
+                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
                     <Phone className="w-8 h-8 text-white" />
                   </div>
                   <div>
                     <h4 className="font-bold text-xl text-gray-900 mb-2">Call Us Now</h4>
                     <a
                       href={`tel:${businessInfo.phone}`}
-                      className="text-2xl font-bold text-primary hover:text-secondary transition-colors"
+                      className="text-2xl font-bold text-blue-700 hover:text-blue-600 transition-colors"
                     >
                       {businessInfo.phone}
                     </a>
@@ -204,7 +204,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-16 h-16 bg-secondary rounded-xl flex items-center justify-center shadow-lg">
+                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-600 to-green-500 rounded-xl flex items-center justify-center shadow-lg">
                     <MapPin className="w-8 h-8 text-white" />
                   </div>
                   <div>
@@ -217,7 +217,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-xl flex items-center justify-center shadow-lg">
+                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
                     <Clock className="w-8 h-8 text-white" />
                   </div>
                   <div>
