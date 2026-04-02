@@ -58,14 +58,14 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-white">
+    <section id="contact" className="py-20 md:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Get In Touch
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Ready to Book Your <span className="text-primary">Appointment?</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Ready to experience expert therapeutic care? Contact us today to schedule your appointment.
+          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Contact us today to experience expert therapeutic care. We're here to help you feel your best.
           </p>
         </div>
 
@@ -180,38 +180,49 @@ export function ContactSection() {
 
           {/* Right: Contact Info & Map */}
           <div className="space-y-6">
-            {/* Contact Info */}
-            <Card>
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Address</h4>
-                    <p className="text-gray-600">
-                      {businessInfo.address}<br />
-                      {businessInfo.city}, {businessInfo.state} {businessInfo.zip}
-                    </p>
-                  </div>
+            {/* Contact Info - Prominent */}
+            <Card className="border-2 border-primary/20 shadow-xl">
+              <CardContent className="p-8 space-y-8 bg-gradient-to-br from-blue-50 to-white">
+                <div className="text-center pb-4 border-b-2 border-primary/20">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Contact Information</h3>
+                  <p className="text-gray-700">Reach out to us directly</p>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-xl flex items-center justify-center shadow-lg">
+                    <Phone className="w-8 h-8 text-white" />
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
+                    <h4 className="font-bold text-xl text-gray-900 mb-2">Call Us Now</h4>
                     <a
                       href={`tel:${businessInfo.phone}`}
-                      className="text-gray-600 hover:text-primary transition-colors"
+                      className="text-2xl font-bold text-primary hover:text-secondary transition-colors"
                     >
                       {businessInfo.phone}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <Clock className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 w-16 h-16 bg-secondary rounded-xl flex items-center justify-center shadow-lg">
+                    <MapPin className="w-8 h-8 text-white" />
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Hours</h4>
-                    <p className="text-gray-600">{businessInfo.hours}</p>
+                    <h4 className="font-bold text-xl text-gray-900 mb-2">Visit Us</h4>
+                    <p className="text-lg text-gray-800 font-medium">
+                      {businessInfo.address}<br />
+                      {businessInfo.city}, {businessInfo.state} {businessInfo.zip}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-xl flex items-center justify-center shadow-lg">
+                    <Clock className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-xl text-gray-900 mb-2">Business Hours</h4>
+                    <p className="text-lg text-gray-800 font-medium">{businessInfo.hours}</p>
                   </div>
                 </div>
               </CardContent>

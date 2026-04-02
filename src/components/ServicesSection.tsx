@@ -18,23 +18,23 @@ export function ServicesSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-white">
+    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-blue-50 to-white">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Our Therapeutic Services
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Professional massage therapy tailored to your wellness needs
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon] || Heart
 
@@ -45,35 +45,35 @@ export function ServicesSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.1 }}
               >
-                <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
-                <CardContent className="p-6">
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    {/* Left: Icon, Name, Description */}
-                    <div className="flex-1">
-                      <div className="flex items-start gap-3 mb-3">
-                        <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                          <IconComponent className="w-6 h-6 text-primary" />
-                        </div>
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          {service.name}
-                        </h3>
+                <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full border-2 hover:border-primary/30 bg-white">
+                <CardContent className="p-8">
+                  <div className="flex flex-col gap-6">
+                    {/* Icon & Name */}
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-8 h-8 text-white" />
                       </div>
-                      <p className="text-sm text-gray-600">
-                        {service.description}
-                      </p>
+                      <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                        {service.name}
+                      </h3>
                     </div>
 
-                    {/* Right: Pricing Table */}
-                    <div className="sm:border-l sm:border-gray-200 sm:pl-4">
-                      <div className="text-sm font-medium text-gray-500 mb-2">Pricing</div>
-                      <div className="space-y-1">
+                    {/* Description */}
+                    <p className="text-base text-gray-700 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    {/* Pricing */}
+                    <div className="pt-4 border-t border-gray-200">
+                      <div className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Pricing</div>
+                      <div className="space-y-3">
                         {service.pricing.map((price) => (
                           <div
                             key={price.duration}
-                            className="flex justify-between gap-4 text-sm"
+                            className="flex justify-between items-center bg-blue-50 p-3 rounded-lg"
                           >
-                            <span className="text-gray-600">{price.duration}</span>
-                            <span className="font-semibold text-primary">{price.price}</span>
+                            <span className="text-gray-900 font-medium">{price.duration}</span>
+                            <span className="text-xl font-bold text-primary">{price.price}</span>
                           </div>
                         ))}
                       </div>
