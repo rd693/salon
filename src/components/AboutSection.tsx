@@ -35,7 +35,7 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-white">
+    <section id="about" className="py-20 md:py-28 bg-gradient-to-br from-white via-blue-50 to-green-50">
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Image */}
@@ -47,18 +47,18 @@ const AboutSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/images/massage-therapy.jpg"
-                alt="Professional massage therapy"
+                src="/images/spa-interior.jpg"
+                alt="Relaxing spa interior"
                 className="w-full h-[500px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-primary text-white p-8 rounded-xl shadow-xl">
+            <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-blue-600 to-blue-500 text-white p-8 rounded-2xl shadow-2xl">
               <div className="text-center">
                 <div className="text-5xl font-bold mb-2">4.8</div>
                 <div className="flex gap-1 justify-center mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="w-5 h-5 fill-yellow-300 text-yellow-300" />
                   ))}
                 </div>
                 <div className="text-sm font-medium">67+ Reviews</div>
@@ -88,14 +88,14 @@ const AboutSection = () => {
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {features.map((feature) => (
+              {features.map((feature, idx) => (
                 <div
                   key={feature.title}
                   className="flex gap-3 items-start"
                 >
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <feature.icon className="w-6 h-6 text-primary" />
+                    <div className={`w-12 h-12 ${idx % 2 === 0 ? 'bg-blue-100' : 'bg-green-100'} rounded-lg flex items-center justify-center shadow-sm`}>
+                      <feature.icon className={`w-6 h-6 ${idx % 2 === 0 ? 'text-blue-600' : 'text-green-600'}`} />
                     </div>
                   </div>
                   <div>

@@ -167,7 +167,7 @@ export function ContactSection() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-primary hover:bg-secondary text-white"
+                      className="w-full bg-green-600 hover:bg-green-700 text-white font-bold shadow-lg hover:shadow-xl transition-all"
                       size="lg"
                     >
                       Send Message
